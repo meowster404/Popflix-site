@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Welcome - Popflix</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">
+        <span class="logo-pop">Pop</span><span class="logo-flix">flix</span>
+    </a>
+</header>
+
+<main>
+    <div class="auth-container">
+        <!-- Step 1: Login / Initial Signup Form -->
+        <div id="auth-step-1" class="auth-form-wrapper">
+            <h1 id="form-title">Login</h1>
+            <form id="auth-form">
+                <div class="input-group" id="email-field-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group" id="password-field-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input-group" id="confirm-password-field-group" style="display: none;">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password">
+                </div>
+                <button type="submit" id="form-submit-btn" class="auth-btn">Login</button>
+                <!-- NEW: Magic-link send button -->
+                <button type="button" id="magic-link-btn" class="auth-btn outline">Send sign-in link</button>
+            </form>
+            <div class="separator"><span>OR</span></div>
+            <button id="google-signin-btn" class="auth-btn google">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" class="google-icon"/>
+                Sign in with Google
+            </button>
+            <p class="toggle-form">
+                <span id="toggle-text">Don't have an account?</span>
+                <button id="toggle-btn" type="button">Sign up</button>
+            </p>
+        </div>
+
+        <!-- Step 2: Complete Profile Form -->
+        <div id="auth-step-2" class="auth-form-wrapper hidden">
+            <h1>Complete Your Profile</h1>
+            <form id="profile-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Choose a username" required>
+                </div>
+                <div class="input-group">
+                    <label>Favorite Genres (select at least 1)</label>
+                    <div id="genre-pills" class="genre-pills-container"></div>
+                </div>
+                <div class="input-group">
+                    <label for="movie-search">Add some movies you've seen (Optional)</label>
+                    <input type="text" id="movie-search" placeholder="Search for a movie...">
+                    <div id="movie-search-results" class="search-results-list"></div>
+                    <div id="selected-movies" class="selected-items-list"></div>
+                </div>
+                <button type="submit" class="auth-btn">Finish Setup</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<!-- Custom Modal for Pop-ups -->
+<div id="generic-modal" class="modal-overlay hidden"></div>
+
+<!-- Firebase + App Scripts -->
+<script type="module" src="../js/db.js"></script>
+<script type="module" src="../js/ui.js"></script>
+<script type="module" src="../js/auth.js"></script>
+
+</body>
+</html>

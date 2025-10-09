@@ -1,0 +1,64 @@
+/* * colors.css
+ * Centralized color variables for the Popflix app.
+ */
+
+:root {
+    /* --- Brand & Accent Colors --- */
+    --pop-color: #E50914;
+    --pop-color-hover: #B20710; /* Darker red for hover */
+    --accent-blue: #0066CC;
+    --accent-green: #00C851;
+    --accent-orange: #FF8800;
+    --accent-purple: #6F42C1;
+
+    /* --- Global Status Colors --- */
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --error-color: #dc3545;
+    --info-color: #17a2b8;
+
+    /* --- Light Mode (Default) --- */
+    --background-color: #f4f4f4;
+    --header-bg-color: #ffffff;
+    --card-bg-color: #ffffff;
+    --text-color: #121212;
+    --flix-color: #000000;
+    --secondary-text-color: #6c757d;
+    --subtle-text-color: #495057;
+    --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    --input-bg-color: #e9e9e9;
+    --border-color: #dee2e6;
+    --hover-bg: #f8f9fa;
+    --focus-color: #80bdff;
+    --disabled-color: #6c757d;
+    --overlay-bg: rgba(0, 0, 0, 0.5);
+    --text-shadow-color: rgba(0, 0, 0, 0.3);
+    --translucent-bg: rgba(255, 255, 255, 0.8);
+    --translucent-bg-hover: rgba(255, 255, 255, 1);
+    --translucent-border: rgba(0, 0, 0, 0.1);
+    --footer-bg-color: #e9ecef; /* **FIX:** Added footer variable */
+}
+
+/* --- Dark Mode Overrides --- */
+:root.dark-mode {
+    /* Using .dark-mode class on the <html> or <body> tag will activate these colors. */
+    --background-color: #121212;
+    --header-bg-color: #141414;
+    --card-bg-color: #1e1e1e;
+    --text-color: #f1f1f1;
+    --flix-color: #ffffff;
+    --secondary-text-color: #888;
+    --subtle-text-color: #cccccc;
+    --card-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    --input-bg-color: #333;
+    --border-color: #404040;
+    --hover-bg: #2a2a2a;
+    --focus-color: #4dabf7;
+    --overlay-bg: rgba(0, 0, 0, 0.9);
+    --text-shadow-color: rgba(0, 0, 0, 0.5);
+    --translucent-bg: rgba(20, 20, 20, 0.7);
+    --translucent-bg-hover: rgba(20, 20, 20, 0.9);
+    --translucent-border: rgba(255, 255, 255, 0.2);
+    --footer-bg-color: #101010; /* **FIX:** Added footer variable */
+}
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Finishing Sign-in — Popflix</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+<main class="auth-container">
+    <div class="auth-form-wrapper">
+        <h1>Finishing sign-in...</h1>
+        <p id="finish-status">Completing sign-in. Please wait...</p>
+    </div>
+</main>
+
+<div id="generic-modal" class="modal-overlay hidden"></div>
+
+<!-- Load firebase + local app scripts -->
+<script type="module" src="/js/db.js"></script>
+<script type="module" src="/js/ui.js"></script>
+<!-- This small script will attempt to complete the magic-link sign-in -->
+<script type="module">
+    import { auth, db } from '/js/db.js';
+    import { isSignInWithEmailLink, signInWithEmailLink } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+    import { showAlert } from '/js/ui.js';
+
+    async function finishSignIn() {
+      const statusEl = document.getElementById('finish-status');
+      try {
+        if (!isSignInWithEmailLink(auth, window.location.href)) {
+          statusEl.textContent = 'This page was opened without a sign-in link.';
+          return;
+        }
+        let email = window.localStorage.getItem('emailForSignIn');
+        if (!email) {
+          email = window.prompt('Please confirm your email to complete sign-in:');
+        }
+        if (!email) {
+          statusEl.textContent = 'Email not provided. Could not complete sign-in.';
+          return;
+        }
+
+        const result = await signInWithEmailLink(auth, email, window.location.href);
+        window.localStorage.removeItem('emailForSignIn');
+        statusEl.textContent = 'Sign-in successful. Redirecting...';
+
+        // If user profile document missing, navigate to auth.html so user completes profile
+        const user = result.user;
+        const userDocRef = doc(db, 'users', user.uid);
+        const userDoc = await getDoc(userDocRef);
+        if (!userDoc.exists()) {
+          // Redirect to your packaged app route that shows profile completion
+          window.location.href = '/auth.html';
+        } else {
+          window.location.href = '/home.html';
+        }
+      } catch (err) {
+        console.error('finishSignIn error', err);
+        statusEl.textContent = 'Could not complete sign-in. See console for details.';
+        try { showAlert('Sign-in Error', err.message || 'Unknown error'); } catch(e) {}
+      }
+    }
+
+    // Wait for firebase to initialize
+    window.addEventListener('load', finishSignIn);
+</script>
+</body>
+</html>

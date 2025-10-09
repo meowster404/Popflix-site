@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Popflix</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="details-page">
+
+<header>
+    <a href="home.html" class="logo">
+        <span class="logo-pop">Pop</span><span class="logo-flix">flix</span>
+    </a>
+    <div class="header-icons">
+        <button class="icon-button" id="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <div class="profile-container">
+            <span id="header-username"></span>
+            <button class="icon-button profile-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </button>
+        </div>
+
+    </div>
+</header>
+
+<main id="details-page-main" class="details-page-main">
+    <!-- Background Image Container -->
+    <div class="details-bg-container">
+        <div id="details-bg-image" class="details-bg-image"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="detail-container" class="details-content">
+        <!-- Poster Image -->
+        <div id="details-poster-skeleton" class="skeleton-card" style="width: 220px; height: 330px; margin-bottom: 2rem;"></div>
+        <img id="details-poster" src="" alt="Poster" class="details-poster hidden">
+
+        <!-- Movie Info -->
+        <div class="movie-info">
+            <h1 id="movie-title"></h1>
+            <ul class="movie-meta-top-row">
+                <li id="release-year"></li>
+                <li id="runtime"></li>
+                <li id="certification-badge" class="certification-badge" style="display: none;"></li>
+                <li id="movie-rating"></li>
+            </ul>
+            <p id="genre"></p>
+            <p id="plot"></p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="details-actions">
+            <div class="primary-actions">
+                <button id="watch-trailer-button" class="watch-now-button">Watch Trailer</button>
+                <button id="favorite-btn" class="action-btn-icon icon-only"></button>
+            </div>
+            <div class="user-actions">
+                <button id="watchlist-btn" class="action-btn-icon">Add to Watchlist</button>
+                <button id="completed-btn" class="action-btn-icon">Mark as Completed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div id="reviews-section-container" class="reviews-section-container hidden">
+        <div class="reviews-section">
+            <h2>Ratings & Reviews</h2>
+            <div id="add-review-form-container" class="add-review-form">
+                <h3>Add Your Review</h3>
+                <div class="rating-scale-input">
+                    <button class="rating-btn" data-value="1">1</button>
+                    <button class="rating-btn" data-value="2">2</button>
+                    <button class="rating-btn" data-value="3">3</button>
+                    <button class="rating-btn" data-value="4">4</button>
+                    <button class="rating-btn" data-value="5">5</button>
+                    <button class="rating-btn" data-value="6">6</button>
+                    <button class="rating-btn" data-value="7">7</button>
+                    <button class="rating-btn" data-value="8">8</button>
+                    <button class="rating-btn" data-value="9">9</button>
+                    <button class="rating-btn" data-value="10">10</button>
+                </div>
+                <textarea id="review-text" placeholder="Write your review here..."></textarea>
+                <button id="submit-review-button">Submit Review</button>
+            </div>
+            <div id="reviews-list"></div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Popflix. All Rights Reserved.</p>
+</footer>
+
+<!-- Modals -->
+<div id="trailer-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+        <span class="close-modal-button">&times;</span>
+        <div class="trailer-video-container">
+            <iframe id="trailer-iframe" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<div id="search-overlay" class="modal-overlay hidden">
+    <!-- Content injected by ui.js -->
+</div>
+
+<div id="profile-modal" class="modal-overlay hidden">
+    <div class="profile-drawer">
+        <!-- Profile content will be loaded by profile.js -->
+    </div>
+</div>
+
+<div id="generic-modal" class="modal-overlay hidden"></div>
+
+<!-- Scripts -->
+<script type="module" src="../js/firebase-config.js"></script>
+<script type="module" src="../js/details.js"></script>
+<script type="module" src="../js/profile.js"></script>
+<script type="module" src="../js/ui.js"></script>
+
+</body>
+</html>
+

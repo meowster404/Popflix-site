@@ -1,0 +1,255 @@
+/* --- auth.css --- */
+@import url('color.css');
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.auth-form-wrapper {
+    background-color: var(--card-bg-color);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+}
+
+.auth-form-wrapper h1 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 0.9rem;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    background-color: var(--pop-color);
+    color: white;
+}
+
+.auth-btn:hover {
+    opacity: 0.9;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--secondary-text-color);
+    margin: 1.5rem 0;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+.separator:not(:empty)::before { margin-right: .25em; }
+.separator:not(:empty)::after { margin-left: .25em; }
+
+.auth-btn.google {
+    background-color: #333333;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.google-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.toggle-form {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+}
+
+.toggle-form button {
+    background: none;
+    border: none;
+    color: var(--pop-color);
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+/* --- Profile Form Styles --- */
+.genre-pills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.genre-pill {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.genre-pill.selected {
+    background-color: var(--pop-color);
+    color: white;
+    border-color: var(--pop-color);
+}
+
+.search-results-list {
+    position: absolute;
+    width: 100%;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-top: 0.25rem;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.search-result-item {
+    padding: 0.75rem;
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background-color: var(--hover-bg);
+}
+
+.selected-items-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.selected-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--pop-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* --- Custom Alert Modal Styles (REFINED) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.6);
+    z-index: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-box {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.modal-box h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.4rem;
+    color: var(--pop-color);
+}
+.modal-box p {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+}
+#modal-actions {
+    display: flex;
+    justify-content: center;
+}
+.modal-btn {
+    padding: 0.8rem 2.8rem;
+    border-radius: 25px;
+    border: none;
+    background-color: var(--pop-color);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.modal-btn:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+}
