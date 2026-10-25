@@ -1,6 +1,6 @@
 // ui.js
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-const tmdbApiKey = "3b8e66b62b76f7bd72722a5ce290a8a0";
+const tmdbApiKey = "YOUR_TMDB_API_KEY";
 
 // --- HEADER ---
 export function updateHeaderProfileIcon(userData) {
