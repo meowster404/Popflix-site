@@ -16,7 +16,7 @@ import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.6.1/fi
 import { auth, db } from './db.js';
 import { showAlert } from './ui.js';
 
-const tmdbApiKey = "3b8e66b62b76f7bd72722a5ce290a8a0";
+const tmdbApiKey = "YOUR_TMDB_API_KEY";
 
 // === CONFIG: replace this with the URL you'll host for finishing sign-in ===
 const EMAIL_LINK_REDIRECT_URL = 'https://popflix-fa92d.firebaseapp.com/__/auth/action';
