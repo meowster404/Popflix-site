@@ -5,7 +5,7 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/9.6.1/fi
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyA1sNorLeQxKLLV2xzW_CeLPfCY9kdbHdU",
+    apiKey: "YOUR_FIREBASE_API_KEY",
     authDomain: "popflix-fa92d.firebaseapp.com",
     projectId: "popflix-fa92d",
     storageBucket: "popflix-fa92d.appspot.com",
