@@ -5,7 +5,7 @@ import * as db from '../js/db.js';
 
 let currentUser = null;
 let userData = null;
-const tmdbApiKey = "3b8e66b62b76f7bd72722a5ce290a8a0";
+const tmdbApiKey = "YOUR_TMDB_API_KEY";
 
 document.addEventListener('DOMContentLoaded', () => {
     // Notify the Android app that the home page is loading
