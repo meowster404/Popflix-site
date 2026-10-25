@@ -36,7 +36,7 @@ async function loadContentDetails() {
     }
 
     const appendToResponse = contentType === 'movie' ? 'release_dates,videos' : 'content_ratings,videos';
-    const detailsUrl = `https://api.themoviedb.org/3/${contentType}/${contentId}?api_key=3b8e66b62b76f7bd72722a5ce290a8a0&append_to_response=${appendToResponse}`;
+    const detailsUrl = `https://api.themoviedb.org/3/${contentType}/${contentId}?api_key=YOUR_TMDB_API_KEY&append_to_response=${appendToResponse}`;
 
     try {
         const response = await fetch(detailsUrl);
